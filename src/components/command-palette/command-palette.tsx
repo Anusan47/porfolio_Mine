@@ -5,7 +5,6 @@ import { useTheme } from "next-themes";
 import { useTransitionRouter } from "next-view-transitions";
 import { useCallback, useEffect, useState } from "react";
 import {
-    IconArrowRight,
     IconBrandGithub,
     IconBrandLinkedin,
     IconBriefcase2,
@@ -15,8 +14,6 @@ import {
     IconHome,
     IconMail,
     IconMoon,
-    IconPencil,
-    IconRss,
     IconSearch,
     IconSun,
 } from "@tabler/icons-react";
@@ -24,18 +21,7 @@ import { cn } from "@/lib/utils";
 
 export const PALETTE_OPEN_EVENT = "palette:open";
 
-export interface PaletteBlogPost {
-    slug: string;
-    title: string;
-    description: string;
-    date: string;
-}
-
-interface CommandPaletteProps {
-    posts: PaletteBlogPost[];
-}
-
-export function CommandPalette({ posts }: CommandPaletteProps) {
+export function CommandPalette() {
     const [open, setOpen] = useState(false);
     const [copied, setCopied] = useState(false);
     const [viewport, setViewport] = useState<{ height: number; offsetTop: number } | null>(null);
@@ -188,35 +174,9 @@ export function CommandPalette({ posts }: CommandPaletteProps) {
                                 label="Experience"
                                 onSelect={() => run(() => goToSection("experience"))}
                             />
-                            <Item
-                                icon={<IconPencil className="h-4 w-4" />}
-                                label="Blog"
-                                onSelect={() => run(() => router.push("/blog"))}
-                            />
                         </Group>
 
-                        {posts.length > 0 && (
-                            <Group heading="Recent writing">
-                                {posts.slice(0, 8).map((post) => (
-                                    <Item
-                                        key={post.slug}
-                                        icon={<IconArrowRight className="h-4 w-4" />}
-                                        label={post.title}
-                                        sublabel={new Date(post.date).toLocaleDateString(
-                                            "en-US",
-                                            { month: "short", day: "numeric", year: "numeric" },
-                                        )}
-                                        keywords={[
-                                            post.description,
-                                            ...post.title.split(" "),
-                                        ]}
-                                        onSelect={() =>
-                                            run(() => router.push(`/blog/${post.slug}`))
-                                        }
-                                    />
-                                ))}
-                            </Group>
-                        )}
+
 
                         <Group heading="Actions">
                             <Item
@@ -287,17 +247,6 @@ export function CommandPalette({ posts }: CommandPaletteProps) {
                                         window.location.href =
                                             "mailto:shivypat02@gmail.com";
                                     })
-                                }
-                            />
-                            <Item
-                                icon={<IconRss className="h-4 w-4" />}
-                                label="RSS feed"
-                                sublabel="/feed.xml"
-                                keywords={["rss", "feed", "subscribe", "xml"]}
-                                onSelect={() =>
-                                    run(() =>
-                                        window.open("/feed.xml", "_blank", "noopener,noreferrer"),
-                                    )
                                 }
                             />
                         </Group>

@@ -8,7 +8,6 @@ import { data } from "@/data/data";
 import Image from "next/image";
 import { Analytics } from "@vercel/analytics/next";
 import { CommandPalette } from "@/components/command-palette/command-palette";
-import { getAllPosts } from "@/lib/blog";
 import { ViewTransitions } from "next-view-transitions";
 
 const geistSans = Geist({
@@ -52,11 +51,6 @@ export const metadata: Metadata = {
     title: "Shivam Patel — Software Engineer",
     description: "Software Engineer who likes building things.",
   },
-  alternates: {
-    types: {
-      "application/rss+xml": "/feed.xml",
-    },
-  },
 };
 
 export default function RootLayout({
@@ -64,12 +58,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const palettePosts = getAllPosts().map((p) => ({
-    slug: p.slug,
-    title: p.title,
-    description: p.description,
-    date: p.date,
-  }));
 
   return (
     <ViewTransitions>
@@ -79,7 +67,7 @@ export default function RootLayout({
         >
           <ThemeProvider attribute="class" defaultTheme="dark">
             <Navbar navItems={data.nav} />
-            <CommandPalette posts={palettePosts} />
+            <CommandPalette />
             <Image
               src="/layout/background-ellipse3.svg"
               alt=""
