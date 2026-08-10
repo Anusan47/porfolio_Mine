@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server';
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-// Full repo path "owner/name". Defaults to this portfolio's repo.
-const GITHUB_REPO = process.env.GITHUB_REPO ?? 'shivy02/portfolio-website';
-
 interface RepoResponse {
   stargazers_count: number;
   forks_count: number;
@@ -11,6 +7,10 @@ interface RepoResponse {
 }
 
 export async function GET() {
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+  // Full repo path "owner/name". Defaults to this portfolio's repo.
+  const GITHUB_REPO = process.env.GITHUB_REPO ?? 'shivy02/portfolio-website';
+
   try {
     const headers: HeadersInit = {
       Accept: 'application/vnd.github+json',
