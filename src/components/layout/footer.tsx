@@ -7,7 +7,6 @@ import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
-import { AnimatedLogo } from "@/components/ui/logo-animation";
 import { useGitHubStars } from "@/hooks/useGitHubStars";
 import { data } from "@/data/data";
 
@@ -137,14 +136,12 @@ export const Footer = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 border-t border-border/50 pt-10 pb-8">
                     <div className="col-span-2 sm:col-span-1 flex flex-col items-start gap-3">
                         {mounted && (
-                            <AnimatedLogo
-                                theme={resolvedTheme === "dark" ? "dark" : "light"}
-                                className="w-8 h-8"
-                                onClick={handleLogoClick}
-                            />
+                            <button onClick={handleLogoClick} className="hover:opacity-80 transition-opacity">
+                                <img src={resolvedTheme === "dark" ? "/anusan_logo.png" : "/anusan_logo1.png"} alt="Anusan Logo" className="h-8 w-auto" />
+                            </button>
                         )}
                         <p className="text-sm font-semibold tracking-tight text-primary">
-                            Shivam Patel
+                            Anusan
                         </p>
                         <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
                             Software Engineer & Co-founder, building thoughtful products at the intersection of AI and great UX.
@@ -205,7 +202,7 @@ export const Footer = () => {
                 {/* Bottom row */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between items-center border-t border-border/50 pt-6 pb-6">
                     <p className="text-xs text-muted-foreground leading-none">
-                        &copy; {new Date().getFullYear()} Shivam Patel. All rights reserved.
+                        &copy; {new Date().getFullYear()} Anusan. All rights reserved.
                     </p>
                     <p className="text-xs text-muted-foreground leading-none">
                         Built with ❤️ using React, Next.js and Tailwind

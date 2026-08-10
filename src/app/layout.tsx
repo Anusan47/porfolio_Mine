@@ -28,11 +28,11 @@ const pacifico = Pacifico({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivypatel.com"),
-  title: "Shivam Patel - Software Engineer",
+  title: "Anusan Portfolio",
   description: "A beautiful portfolio showcasing my work as a software engineer.",
   icons: {
     icon: [
-      { url: "/logo/logo.svg", type: "image/svg+xml" },       
+      { url: "/anusan_logo.png", type: "image/png" },       
       { url: "/favicon-196.png", sizes: "32x32", type: "image/png" },
       // { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon.ico" },
@@ -42,13 +42,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://shivypatel.com",
-    title: "Shivam Patel — Software Engineer",
+    title: "Anusan Portfolio",
     description: "Software Engineer who likes building things.",
-    siteName: "Shivam Patel",
+    siteName: "Anusan Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shivam Patel — Software Engineer",
+    title: "Anusan Portfolio",
     description: "Software Engineer who likes building things.",
   },
 };

@@ -108,14 +108,8 @@ export const Navbar = ({
           {/* Logo on the left */}
           <div className="flex items-center mr-4 sm:mr-16">
             {mounted && (
-              <button
-                onClick={handleLogoClick}
-                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-              >
-                <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-md bg-zinc-900 dark:bg-zinc-100 shadow-sm">
-                  <span className="font-serif text-sm sm:text-base font-bold text-white dark:text-zinc-900">A</span>
-                </div>
-                <span className="hidden sm:inline-block font-sans font-bold text-base sm:text-lg text-zinc-900 dark:text-zinc-100 tracking-tight">Anusan</span>
+              <button onClick={handleLogoClick} className="flex items-center hover:opacity-80 transition-opacity">
+                <img src={resolvedTheme === "dark" ? "/anusan_logo.png" : "/anusan_logo1.png"} alt="Anusan Logo" className="h-8 w-auto" />
               </button>
             )}
           </div>
