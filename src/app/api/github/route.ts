@@ -1,8 +1,5 @@
 import { NextResponse } from 'next/server';
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
-
 interface ContributionDay {
   date: string;
   contributionCount: number;
@@ -25,6 +22,9 @@ interface GitHubResponse {
 }
 
 export async function GET() {
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+  const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
+
   // Validate environment variables
   if (!GITHUB_TOKEN || !GITHUB_USERNAME) {
     console.error('Missing GitHub credentials');

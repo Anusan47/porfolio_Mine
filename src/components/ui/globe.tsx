@@ -10,15 +10,14 @@ import { cn } from "@/lib/utils";
 
 const MOVEMENT_DAMPING = 1400;
 
-const BOSTON = { lat: 42.3601, lng: -71.0589 };
-const MENLO = { lat: 37.453, lng: -122.1817 };
+const CHENNAI = { lat: 13.0827, lng: 80.2707 };
 const AMBER = "rgb(245, 158, 11)";
 const GREEN = "rgb(34, 197, 94)";
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
   height: 800,
-  onRender: () => {},
+  onRender: () => { },
   devicePixelRatio: 2,
   phi: 0,
   theta: 0.4,
@@ -72,7 +71,7 @@ export function Globe({
   };
 
   useEffect(() => {
-    let phi = 0;
+    let phi = 3.14;
     let width = 0;
     let currentPhi = 0;
     let overlayAnimId = 0;
@@ -116,25 +115,7 @@ export function Globe({
       };
     };
 
-    const v1 = toVec(BOSTON.lat, BOSTON.lng);
-    const v2 = toVec(MENLO.lat, MENLO.lng);
-    const dotProd = v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
-    const omega = Math.acos(Math.max(-1, Math.min(1, dotProd)));
-    const sinOmega = Math.sin(omega);
-    const N = 80;
-    const ARC_LIFT = 0.18;
-
-    const arcPoints: { x: number; y: number; z: number }[] = [];
-    for (let i = 0; i <= N; i++) {
-      const t = i / N;
-      const a = Math.sin((1 - t) * omega) / sinOmega;
-      const b = Math.sin(t * omega) / sinOmega;
-      const x = a * v1.x + b * v2.x;
-      const y = a * v1.y + b * v2.y;
-      const z = a * v1.z + b * v2.z;
-      const lift = 1 + Math.sin(Math.PI * t) * ARC_LIFT;
-      arcPoints.push({ x: x * lift, y: y * lift, z: z * lift });
-    }
+    // Arc points removed for single location
 
     // Matches cobe's rotation: M_theta * M_phi (rotate around Y by phi, then X by theta).
     const project = (p: { x: number; y: number; z: number }, phiRot: number) => {
@@ -178,52 +159,7 @@ export function Globe({
       // Cobe's globe radius in screen space is sqrt(0.64) = 0.8 of the half-canvas.
       const radius = (W / 2) * 0.8;
 
-      const projected = arcPoints.map((p) => {
-        const pr = project(p, currentPhi);
-        return {
-          sx: cx + pr.x * radius,
-          sy: cy - pr.y * radius,
-          z: pr.z,
-        };
-      });
-
-      // Arc with z-based fade (hidden when behind globe)
-      const lineRgb = isDark ? "255, 255, 255" : "30, 30, 30";
-      ctx.lineWidth = 1.2;
-      ctx.lineCap = "round";
-      for (let i = 0; i < projected.length - 1; i++) {
-        const a = projected[i];
-        const b = projected[i + 1];
-        const zAvg = (a.z + b.z) / 2;
-        if (zAvg < -0.05) continue;
-        const alpha = Math.max(0, Math.min(0.6, (zAvg + 0.05) / 0.6 * 0.6));
-        ctx.strokeStyle = `rgba(${lineRgb}, ${alpha})`;
-        ctx.beginPath();
-        ctx.moveTo(a.sx, a.sy);
-        ctx.lineTo(b.sx, b.sy);
-        ctx.stroke();
-      }
-
-      // Beam: bright moving segment along the arc (Boston → Menlo)
-      // Cycle includes a pause after each pass.
-      beamProgress = (beamProgress + 0.0055) % 1.35;
-      if (beamProgress <= 1) {
-        const trailLength = 14;
-        for (let i = 0; i < trailLength; i++) {
-          const t = beamProgress - i * 0.018;
-          if (t < 0 || t > 1) continue;
-          const idx = Math.min(projected.length - 1, Math.floor(t * (projected.length - 1)));
-          const p = projected[idx];
-          if (p.z < -0.05) continue;
-          const fade = 1 - i / trailLength;
-          const zAlpha = Math.max(0, Math.min(1, (p.z + 0.05) / 0.6));
-          const size = Math.max(0.6, 2.2 - i * 0.12);
-          ctx.beginPath();
-          ctx.arc(p.sx, p.sy, size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${fade * zAlpha})`;
-          ctx.fill();
-        }
-      }
+      // Arc and beam drawing logic removed
 
       // City dots: amber Boston, green Menlo
       const drawDot = (lat: number, lng: number, color: string) => {
@@ -250,8 +186,7 @@ export function Globe({
         ctx.globalAlpha = 1;
       };
 
-      drawDot(BOSTON.lat, BOSTON.lng, AMBER);
-      drawDot(MENLO.lat, MENLO.lng, GREEN);
+      drawDot(CHENNAI.lat, CHENNAI.lng, AMBER);
 
       overlayAnimId = requestAnimationFrame(drawOverlay);
     };
