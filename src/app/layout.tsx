@@ -31,13 +31,9 @@ export const metadata: Metadata = {
   title: "Anusan Portfolio",
   description: "A beautiful portfolio showcasing my work as a software engineer.",
   icons: {
-    icon: [
-      { url: "/anusan_logo.png", type: "image/png" },       
-      { url: "/favicon-196.png", sizes: "32x32", type: "image/png" },
-      // { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon.ico" },
-    ],
-    apple: [{ url: "/apple-icon-180.png", sizes: "180x180" }],
+    icon: "/anusan_logo.png",
+    shortcut: "/anusan_logo.png",
+    apple: "/anusan_logo.png",
   },
   openGraph: {
     type: "website",
