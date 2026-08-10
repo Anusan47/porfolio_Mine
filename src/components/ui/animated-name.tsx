@@ -22,7 +22,7 @@ const CLIP_REVEALED = "inset(0 0% 0 0)";
 const CLIP_CLIPPED = "inset(0 100% 0 0)";
 
 export type Phase = "initial" | "hold" | "exit" | "enter";
-export type Suffix = "y" | "am";
+export type Suffix = "an" | "";
 
 interface AnimatedNameProps {
     phase: Phase;
@@ -42,17 +42,15 @@ export function AnimatedName({
     // surrounding text shifts via real CSS layout every frame — no Framer
     // `layout` prop, no transform-scale that squishes the text, and no
     // one-frame uncompensated jump on swap.
-    const yRef = useRef<HTMLSpanElement>(null);
-    const amRef = useRef<HTMLSpanElement>(null);
-    const [widths, setWidths] = useState<{ y: number; am: number } | null>(
+    const anRef = useRef<HTMLSpanElement>(null);
+    const [widths, setWidths] = useState<{ "an": number; "": number } | null>(
         null,
     );
 
     useLayoutEffect(() => {
         const measure = () => {
-            const y = yRef.current?.getBoundingClientRect().width;
-            const am = amRef.current?.getBoundingClientRect().width;
-            if (y && am) setWidths({ y, am });
+            const an = anRef.current?.getBoundingClientRect().width;
+            if (an !== undefined) setWidths({ "an": an, "": 0 });
         };
         measure();
         window.addEventListener("resize", measure);
@@ -64,9 +62,8 @@ export function AnimatedName({
     useEffect(() => {
         if (!document.fonts?.ready) return;
         document.fonts.ready.then(() => {
-            const y = yRef.current?.getBoundingClientRect().width;
-            const am = amRef.current?.getBoundingClientRect().width;
-            if (y && am) setWidths({ y, am });
+            const an = anRef.current?.getBoundingClientRect().width;
+            if (an !== undefined) setWidths({ "an": an, "": 0 });
         });
     }, []);
 
@@ -76,11 +73,8 @@ export function AnimatedName({
     );
     const measureSpans = (
         <>
-            <span ref={yRef} aria-hidden="true" className={measureClass}>
-                y
-            </span>
-            <span ref={amRef} aria-hidden="true" className={measureClass}>
-                am
+            <span ref={anRef} aria-hidden="true" className={measureClass}>
+                an
             </span>
         </>
     );
@@ -97,7 +91,7 @@ export function AnimatedName({
                     }}
                     className={cn("inline-block", GRADIENT_TEXT, className)}
                 >
-                    Shivy
+                    Anusan
                 </motion.span>
                 {measureSpans}
             </>
@@ -130,7 +124,7 @@ export function AnimatedName({
 
     return (
         <span className={cn("inline-block", className)}>
-            Shiv
+            Anus
             <motion.span
                 key={phase}
                 {...slotMotionProps}

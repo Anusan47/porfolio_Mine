@@ -5,7 +5,15 @@ import { HeroConstellation } from "@/components/ui/hero-constellation"
 import { BlurFade } from "@/components/ui/blur-fade";
 import { ShimmerBorder } from "@/components/ui/shimmer-border";
 import { IconArrowRight } from "@tabler/icons-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import {
+    AnimatedName,
+    HOLD_MS,
+    INITIAL_REVEAL_MS,
+    SWAP_REVEAL_MS,
+    type Phase,
+    type Suffix,
+} from "@/components/ui/animated-name";
 import {
     Tooltip,
     TooltipContent,
@@ -18,6 +26,28 @@ import { data } from "@/data/data";
 export default function Hero() {
 
     const [wiggleIcon, setWiggleIcon] = useState<string | null>(null);
+
+    const [phase, setPhase] = useState<Phase>("initial");
+    const [suffix, setSuffix] = useState<Suffix>("an");
+
+    useEffect(() => {
+        let timer: ReturnType<typeof setTimeout> | undefined;
+        if (phase === "initial") {
+            timer = setTimeout(() => setPhase("hold"), INITIAL_REVEAL_MS);
+        } else if (phase === "hold") {
+            timer = setTimeout(() => setPhase("exit"), HOLD_MS);
+        } else if (phase === "enter") {
+            timer = setTimeout(() => setPhase("hold"), SWAP_REVEAL_MS);
+        }
+        return () => {
+            if (timer) clearTimeout(timer);
+        };
+    }, [phase]);
+
+    const handleExitComplete = () => {
+        setSuffix((s) => (s === "an" ? "" : "an"));
+        setPhase("enter");
+    };
 
     const handleIconClick = (iconName: string) => {
         setWiggleIcon(iconName);
@@ -54,9 +84,12 @@ export default function Hero() {
                                 <p className="z-50 subpixel-antialiased leading-[1.8] text-5xl sm:text-7xl font-bold text-center whitespace-nowrap">
                                     <span className="inline-block pb-2 bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-950 dark:to-zinc-300 bg-clip-text text-transparent">
                                         Hi. I&#39;m{" "}
-                                        <span className="font-script font-normal text-[1.05em] leading-none align-baseline">
-                                            Anusan
-                                        </span>
+                                        <AnimatedName
+                                            phase={phase}
+                                            suffix={suffix}
+                                            onExitComplete={handleExitComplete}
+                                            className="font-script font-normal text-[1.05em] leading-none align-baseline"
+                                        />
                                     </span>
                                 </p>
                                 <p className="text-base subpixel-antialiased tracking-tight font-medium sm:text-2xl text-center text-secondary-foreground">
