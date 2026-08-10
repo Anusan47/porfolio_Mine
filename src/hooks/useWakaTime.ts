@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react';
 
 interface WakaTimeData {
   totalHours: number;
+  totalCoffees: number;
   isLoading: boolean;
   error: string | null;
 }
 
-const BASE_HOURS = 5223; // Your hardcoded base hours
+const BASE_HOURS = 543;
+const BASE_COFFEES = 194;
 
 export function useWakaTime(): WakaTimeData {
   const [totalHours, setTotalHours] = useState(BASE_HOURS);
+  const [totalCoffees, setTotalCoffees] = useState(BASE_COFFEES);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,15 +27,17 @@ export function useWakaTime(): WakaTimeData {
 
         const data = await response.json();
 
-        // Add WakaTime hours to base hours
-        const combinedHours = BASE_HOURS + (data.totalHours || 0);
-        setTotalHours(combinedHours);
+        // Add WakaTime hours to base values
+        const liveHours = data.totalHours || 0;
+        setTotalHours(BASE_HOURS + liveHours);
+        setTotalCoffees(BASE_COFFEES + Math.ceil(liveHours / 4));
         setError(null);
       } catch (err) {
         console.error('WakaTime fetch error:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
-        // Keep using base hours on error
+        // Keep using base values on error
         setTotalHours(BASE_HOURS);
+        setTotalCoffees(BASE_COFFEES);
       } finally {
         setIsLoading(false);
       }
@@ -41,5 +46,5 @@ export function useWakaTime(): WakaTimeData {
     fetchWakaTimeData();
   }, []);
 
-  return { totalHours, isLoading, error };
+  return { totalHours, totalCoffees, isLoading, error };
 }

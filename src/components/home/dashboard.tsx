@@ -29,8 +29,7 @@ import { SpotlightGlow } from "@/components/ui/spotlight-glow";
 
 
 export default function Dashboard() {
-  const { totalHours } = useWakaTime();
-  const totalCoffees = Math.ceil(totalHours / 4);
+  const { totalHours, totalCoffees } = useWakaTime();
   const { track } = useSpotify();
   const { data: githubData, isLoading: isLoadingGitHub } = useGitHub();
   const [scratchGif, setScratchGif] = useState("");
