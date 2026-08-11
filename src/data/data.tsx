@@ -1,81 +1,141 @@
 import { IconHome, IconBrandGithub, IconBrush, IconBriefcase2, IconBrandLinkedin, IconMail, IconBrandInstagram } from "@tabler/icons-react"
 export const data = {
+  // experience: [
+  //   {
+  //     image: "/experience/celebrin_logo.png",
+  //     company: "Celebrin.ai",
+  //     role: "Co-founder",
+  //     date: "Apr 2026 - Present",
+  //     description: "A brain for your company knowledge.",
+  //     location: "Menlo Park, CA",
+  //     skills: ["Typescript", "React", "NextJS", "AI Agents", "LLMs", "Infrastructure"],
+  //     href: "https://celebrin.ai",
+  //   },
+  //   {
+  //     image: "/experience/ai12z.jpeg",
+  //     company: "ai12z",
+  //     role: "Product Engineer, AI Integrations",
+  //     date: "Aug 2025 - Present",
+  //     description: "AI Search & Digital Assistants. Building AI powered search and assistant solutions for enterprise clients.",
+  //     location: "Boston, MA",
+  //     skills: ["Typescript", "NextJS", "React", "Cypress", "HTML/CSS", "MongoDB"],
+  //     href: "https://ai12z.com",
+  //   },
+  //   {
+  //     image: "/experience/stealth_logo.png",
+  //     company: "Vamo",
+  //     role: "Mobile & Web Developer, Consultant",
+  //     date: "Sep 2025 - Nov 2025",
+  //     description: "Built an app that finds the most cracked engineers on github through code analysis.",
+  //     location: "San Francisco Bay, CA",
+  //     skills: ["Typescript", "React Native", "Expo", "Svelte", "SQL", "UI/UX", "HTML/CSS"],
+  //   },
+  //   {
+  //     image: "/experience/sterilite_logo.jpeg",
+  //     company: "Sterilite",
+  //     role: "Software Engineer, Analyst",
+  //     date: "May 2025 - Aug 2025",
+  //     description: "Data Engineering & Information Systems",
+  //     location: "Townsend, MA",
+  //     skills: ["Full-Stack", "HTML/CSS", "Javascript", "ASP.NET", "PL/SQL", "Data Warehousing", "Data Analysis", "ETL"],
+  //     href: "https://www.sterilite.com",
+  //   },
+  //   {
+  //     image: "/experience/saic_logo.jpeg",
+  //     company: "SAIC",
+  //     role: "Cloud Engineer Intern, Lead",
+  //     date: "Jun 2023 - Aug 2023",
+  //     description:
+  //       "Cloud Engineering & DevSecOps, Air Force Cloud One",
+  //     location: "Hanscom Air Force Base, MA",
+  //     skills: ["Microsoft Azure", "Powershell", "Azure DevOps", "CI/CD", "Cloud Engineering", "DevSecOps"],
+  //     href: "https://www.saic.com",
+  //   },
+  //   {
+  //     image: "/experience/orbitahealth_logo.jpeg",
+  //     company: "Orbita",
+  //     role: "Software Engineer Intern",
+  //     date: " Jun 2021 - Oct 2022",
+  //     description:
+  //       "AI Powered Healthcare Automation",
+  //     location: "Boston, MA",
+  //     skills: ["Full-Stack", "HTML/CSS", "JavaScript", "TypeScript", "Angular", "Node.js", "Express", "MongoDB"],
+  //     href: "https://orbita.ai",
+  //   },
+  //   {
+  //     image: "/experience/umasslowell_logo.jpg",
+  //     company: "University of Massachusetts Lowell",
+  //     role: "Resident Advisor",
+  //     date: "Feb 2020 - Jun 2021",
+  //     description:
+  //       "Made some good friends and helped a lot of people.",
+  //     location: "Lowell, MA",
+  //     skills: ["Leadership", "Communication", "Conflict Resolution", "Event Planning"],
+  //     href: "https://www.uml.edu",
+  //   },
+  // ],
+
   experience: [
     {
-      image: "/experience/celebrin_logo.png",
-      company: "Celebrin.ai",
-      role: "Co-founder",
-      date: "Apr 2026 - Present",
-      description: "A brain for your company knowledge.",
-      location: "Menlo Park, CA",
-      skills: ["Typescript", "React", "NextJS", "AI Agents", "LLMs", "Infrastructure"],
-      href: "https://celebrin.ai",
-    },
-    {
-      image: "/experience/ai12z.jpeg",
-      company: "ai12z",
-      role: "Product Engineer, AI Integrations",
-      date: "Aug 2025 - Present",
-      description: "AI Search & Digital Assistants. Building AI powered search and assistant solutions for enterprise clients.",
-      location: "Boston, MA",
-      skills: ["Typescript", "NextJS", "React", "Cypress", "HTML/CSS", "MongoDB"],
-      href: "https://ai12z.com",
-    },
-    {
-      image: "/experience/stealth_logo.png",
-      company: "Vamo",
-      role: "Mobile & Web Developer, Consultant",
-      date: "Sep 2025 - Nov 2025",
-      description: "Built an app that finds the most cracked engineers on github through code analysis.",
-      location: "San Francisco Bay, CA",
-      skills: ["Typescript", "React Native", "Expo", "Svelte", "SQL", "UI/UX", "HTML/CSS"],
-    },
-    {
-      image: "/experience/sterilite_logo.jpeg",
-      company: "Sterilite",
-      role: "Software Engineer, Analyst",
-      date: "May 2025 - Aug 2025",
-      description: "Data Engineering & Information Systems",
-      location: "Townsend, MA",
-      skills: ["Full-Stack", "HTML/CSS", "Javascript", "ASP.NET", "PL/SQL", "Data Warehousing", "Data Analysis", "ETL"],
-      href: "https://www.sterilite.com",
-    },
-    {
-      image: "/experience/saic_logo.jpeg",
-      company: "SAIC",
-      role: "Cloud Engineer Intern, Lead",
-      date: "Jun 2023 - Aug 2023",
+      image: "/experience/arffy_logo.png",
+      company: "Arffy Technologies",
+      role: "Full Stack Development Intern",
+      date: "Oct 2025 - Feb 2026",
       description:
-        "Cloud Engineering & DevSecOps, Air Force Cloud One",
-      location: "Hanscom Air Force Base, MA",
-      skills: ["Microsoft Azure", "Powershell", "Azure DevOps", "CI/CD", "Cloud Engineering", "DevSecOps"],
-      href: "https://www.saic.com",
+        "Contributed to full stack web application development across frontend and backend modules, REST APIs, responsive UI, and collaborative development.",
+      location: "Idaikal, Tenkasi, Tamil Nadu",
+      skills: [
+        "React",
+        "NestJS",
+        "TypeScript",
+        "MongoDB",
+        "REST APIs",
+        "JWT",
+        "Git",
+        "Docker"
+      ],
+      href: ""
     },
     {
-      image: "/experience/orbitahealth_logo.jpeg",
-      company: "Orbita",
-      role: "Software Engineer Intern",
-      date: " Jun 2021 - Oct 2022",
+      image: "/experience/dextra_logo.png",
+      company: "Dextra Technologies",
+      role: "Web Development Intern",
+      date: "Jul 2025 - Aug 2025",
       description:
-        "AI Powered Healthcare Automation",
-      location: "Boston, MA",
-      skills: ["Full-Stack", "HTML/CSS", "JavaScript", "TypeScript", "Angular", "Node.js", "Express", "MongoDB" ],
-      href: "https://orbita.ai",
+        "Developed responsive web applications, integrated APIs, improved UI/UX, and optimized application performance for client projects.",
+      location: "Guindy, Chennai, Tamil Nadu",
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "REST APIs",
+        "Git",
+        "UI/UX"
+      ],
+      href: ""
     },
     {
-      image: "/experience/umasslowell_logo.jpg",
-      company: "University of Massachusetts Lowell",
-      role: "Resident Advisor",
-      date: "Feb 2020 - Jun 2021",
+      image: "/experience/edunet_logo.png",
+      company: "Edunet Foundation",
+      role: "AI Intern",
+      date: "Apr 2025 - May 2025",
       description:
-        "Made some good friends and helped a lot of people.",
-      location: "Lowell, MA",
-      skills: ["Leadership", "Communication", "Conflict Resolution", "Event Planning"],
-      href: "https://www.uml.edu",
-    },
+        "Completed a 4-week Foundations of AI internship under the Microsoft-AICTE initiative with practical exposure to machine learning, NLP, and responsible AI.",
+      location: "India",
+      skills: [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "NLP",
+        "Responsible AI",
+        "Microsoft AI",
+        "AI Applications"
+      ],
+      href: ""
+    }
   ],
 
-  projects :[
+  projects: [
     {
       title: "Breadbox | Personal Finance Analytics Dashboard",
       href: "https://github.com/BreadBoxOrg/breadbox-web",
@@ -159,34 +219,34 @@ export const data = {
     // },
   ],
 
-  contact : [
+  contact: [
     {
-      href: "mailto:shivypat02@gmail.com",
+      href: "mailto:anusanak47@gmail.com",
       label: "Email",
       icon: <IconMail className="h-5 w-5" />,
       aria: "Email",
     },
     {
-      href: "https://www.linkedin.com/in/shivam-patel-363747214/",
+      href: "https://www.linkedin.com/in/anusan47/",
       label: "LinkedIn",
       icon: <IconBrandLinkedin className="h-5 w-5" />,
       aria: "LinkedIn",
     },
     {
-      href: "https://github.com/shivy02",
+      href: "https://github.com/Anusan47",
       label: "GitHub",
       icon: <IconBrandGithub className="h-5 w-5" />,
       aria: "GitHub",
     },
     {
-      href: "https://instagram.com/shivy_02",
+      href: "https://instagram.com/anusan_47",
       label: "Instagram",
       icon: <IconBrandInstagram className="h-5 w-5" />,
       aria: "Instagram",
     },
   ],
 
-  nav : [
+  nav: [
     {
       name: "Home",
       link: "hero",
@@ -209,7 +269,7 @@ export const data = {
     // },
   ],
 
-  favoriteLanguage : [
+  favoriteLanguage: [
     {
       name: "React",
       icon: "react",
@@ -234,7 +294,7 @@ export const data = {
     "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3FqaHAwa2d1ZHB4ZTIwMXlka2FrNGNrbHRlamJxZ3AzbXVzdHpqMCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/UmbybxMJ3sRvKBV5qw/giphy.gif",
   ],
 
-  tools : [
+  tools: [
     {
       name: "React",
       icon: "react",
@@ -335,7 +395,7 @@ export const data = {
       icon: "azure",
       themeDependent: false,
     },
-      {
+    {
       name: "Docker",
       icon: "docker",
       themeDependent: false,
