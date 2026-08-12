@@ -37,6 +37,7 @@ export default function Projects() {
                             tags={item.technologies}
                             // image={item.image}
                             video={item.video}
+                            iframe={item.iframe}
                             thumbnail={item.thumbnail}
                         // links={item.links}
                         />
@@ -55,6 +56,7 @@ interface Props {
     link?: string;
     image?: string;
     video?: string;
+    iframe?: string;
     thumbnail?: string;
     links?: readonly {
         icon: React.ReactNode;
@@ -64,7 +66,7 @@ interface Props {
     className?: string;
 }
 
-export function ProjectCard({ title, href, description, tags, link, image, video, thumbnail, links }: Props) {
+export function ProjectCard({ title, href, description, tags, link, image, video, iframe, thumbnail, links }: Props) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -125,6 +127,7 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover object-top"
                                 priority
+                                onError={(e) => console.error("Video error:", e)}
                             />
                         </div>
                     )}
@@ -144,8 +147,20 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                             className="pointer-events-none absolute top-0 left-0 w-full h-full object-cover object-top z-10"
                         />
                     )}
+                    {/* iframe Support */}
+                    {iframe && (
+                        <div className="absolute inset-0 bg-[#050914] z-10 overflow-hidden flex items-center justify-center">
+                            <iframe 
+                                src={iframe} 
+                                className="w-[1000px] h-[600px] max-w-none border-none pointer-events-none" 
+                                style={{ transform: 'scale(0.38)', transformOrigin: 'center' }}
+                                title={title}
+                                tabIndex={-1}
+                            />
+                        </div>
+                    )}
                     {/* Static Image fallback */}
-                    {!video && image && (
+                    {!video && !iframe && image && (
                         <Image
                             src={image}
                             alt={title}

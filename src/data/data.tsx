@@ -137,15 +137,14 @@ export const data = {
 
   projects: [
     {
-      title: "Breadbox | Personal Finance Analytics Dashboard",
-      href: "https://github.com/BreadBoxOrg/breadbox-web",
-      dates: "Feb 2024 - May 2024",
-      active: false,
+      title: "BedIQ — Statewide Hospital Intelligence",
+      href: "",
+      dates: "2026",
+      active: true,
       type: "Web Application",
-      technologies: ["React", "Javascript", "HTML", "TailwindCSS", "Plaid API", "OpenAI API", "MUI", "MongoDB", "NodeJS", "Express"],
-      description: "AI integrated personal financial dashboard enabling users to connect multiple accounts and analyze their entire financial landscape.",
-      video: "/projects/breadbox.mp4",
-      thumbnail: "/projects/breadbox-img.png",
+      technologies: ["React", "Javascript", "HTML", "TailwindCSS"],
+      description: "Live interactive demo for BedIQ, a system to track live bed availability and fleet activity.",
+      iframe: "/bediq.html",
       // links: [
       //   {
       //     type: "Source",
