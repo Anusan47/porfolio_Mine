@@ -126,7 +126,8 @@ export default function Earth({ photosRow1, photosRow2 }: { photosRow1: SunsetPh
             </SectionHeading>
 
             <p className="-mt-4 mb-8 text-center text-sm font-medium tracking-wide text-muted-foreground">
-                Bikes &middot; Cars &middot; Jets &middot; Mountains
+                I like machines.<br />
+                Where engineering meets art.
             </p>
 
             <div className="relative flex flex-col gap-4 py-8 overflow-hidden">
