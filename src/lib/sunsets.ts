@@ -30,30 +30,30 @@ async function makeBlurDataURL(file: string): Promise<string | undefined> {
 }
 
 /**
- * Lists every web-ready image in public/sunsets at build time.
- * Alt text comes from the curated list in data.tsx when available.
- * Raw HEIC/oversized photos must first be converted via `npm run sunsets`.
+ * Maps over the curated list in data.tsx and generates blur placeholders if the file exists.
  */
-export async function getSunsetPhotos(): Promise<SunsetPhoto[]> {
-  const dir = path.join(process.cwd(), "public", "sunsets");
-  let files: string[] = [];
-  try {
-    files = fs.readdirSync(dir);
-  } catch {
-    return [];
-  }
+export async function getObsessionPhotos(items: {src: string, alt: string}[]): Promise<SunsetPhoto[]> {
+  const publicDir = path.join(process.cwd(), "public");
+  
   return Promise.all(
-    files
-      .filter((file) => IMAGE_RE.test(file))
-      .sort()
-      .map(async (file) => {
-        const src = `/sunsets/${file}`;
-        const curated = data.sunsets.find((photo) => photo.src === src);
-        return {
-          src,
-          alt: curated?.alt ?? "Landscape photograph",
-          blurDataURL: await makeBlurDataURL(path.join(dir, file)),
-        };
-      }),
+    items.map(async (item) => {
+      const file = path.join(publicDir, item.src);
+      let blurDataURL = undefined;
+      
+      try {
+        if (fs.existsSync(file)) {
+          blurDataURL = await makeBlurDataURL(file);
+        }
+      } catch {
+        // file might not exist yet, that's fine
+      }
+      
+      return {
+        src: item.src,
+        alt: item.alt,
+        blurDataURL,
+      };
+    }),
   );
 }
+

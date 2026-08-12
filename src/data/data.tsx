@@ -426,46 +426,18 @@ export const data = {
       themeDependent: false,
     },
   ],
-  sunsets: [
-    {
-      src: "/sunsets/sunset-01.webp",
-      alt: "View from a rocky summit over a forested valley under a hazy evening sky",
-    },
-    {
-      src: "/sunsets/sunset-02.webp",
-      alt: "Golden grassy hillside at dusk beneath a pink and orange gradient sky",
-    },
-    {
-      src: "/sunsets/sunset-03.webp",
-      alt: "Dirt trail crossing a grassy hilltop toward rolling hills at sunset",
-    },
-    {
-      src: "/sunsets/sunset-04.webp",
-      alt: "Sun setting behind a treeline beyond a field of tall golden grass",
-    },
-    {
-      src: "/sunsets/sunset-05.webp",
-      alt: "Lone pine standing against fog-covered green hills",
-    },
-    {
-      src: "/sunsets/sunset-06.webp",
-      alt: "Highway curving through green coastal hills shrouded in fog",
-    },
-    {
-      src: "/sunsets/sunset-07.webp",
-      alt: "Sun setting over hazy hills beyond a sunlit grassy meadow",
-    },
-    {
-      src: "/sunsets/sunset-08.webp",
-      alt: "Hilltop view over a turquoise bay and small islands under a bright blue sky",
-    },
-    {
-      src: "/sunsets/sunset-09.webp",
-      alt: "Sun setting behind island hills beside roadside palm trees",
-    },
-    {
-      src: "/sunsets/sunset-10.webp",
-      alt: "Wading into a calm turquoise bay toward a sailboat at golden hour",
-    },
+  obsessionsRow1: [
+    { src: "/obsessions/bike1.jpg", alt: "Superbike" },
+    { src: "/obsessions/car1.jpg", alt: "Sports Car" },
+    { src: "/obsessions/jet1.jpg", alt: "Fighter Jet" },
+    { src: "/obsessions/mountain1.jpg", alt: "Snowy Mountain" },
+    { src: "/obsessions/bike2.jpg", alt: "Superbike" },
+  ],
+  obsessionsRow2: [
+    { src: "/obsessions/car2.jpg", alt: "Sports Car" },
+    { src: "/obsessions/mountain2.jpg", alt: "Snowy Mountain" },
+    { src: "/obsessions/jet2.jpg", alt: "Fighter Jet" },
+    { src: "/obsessions/bike3.jpg", alt: "Superbike" },
+    { src: "/obsessions/car3.jpg", alt: "Sports Car" },
   ]
 };

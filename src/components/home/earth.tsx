@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { flushSync } from "react-dom";
-import { IconWorld } from "@tabler/icons-react";
+import { IconFlame } from "@tabler/icons-react";
 import {
     SectionHeading,
     headingIconClass,
@@ -33,7 +33,7 @@ function withViewTransition(update: () => void): { finished: Promise<void> } {
     return { finished: Promise.resolve() };
 }
 
-export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
+export default function Earth({ photosRow1, photosRow2 }: { photosRow1: SunsetPhoto[], photosRow2: SunsetPhoto[] }) {
     const [active, setActive] = useState<LightboxState | null>(null);
     // Track which sources have decoded so we can swap the skeleton for the
     // real image. Keyed by src, so all of the marquee's duplicated copies
@@ -42,7 +42,7 @@ export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
     const markLoaded = (src: string) =>
         setLoaded((prev) => (prev.has(src) ? prev : new Set(prev).add(src)));
 
-    if (photos.length === 0) return null;
+    if (photosRow1.length === 0 && photosRow2.length === 0) return null;
 
     const open = (
         photo: SunsetPhoto,
@@ -69,23 +69,7 @@ export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
         }).finished.finally(() => el?.style.removeProperty("view-transition-name"));
     };
 
-    return (
-        <div className="flex flex-col">
-            <SectionHeading icon={<IconWorld className={headingIconClass} />}>
-                I like the earth
-            </SectionHeading>
-
-            <p className="-mt-4 mb-8 text-center text-sm text-muted-foreground">
-                Places that made me stop and take a picture.
-            </p>
-
-            <div className="relative">
-                <Marquee
-                    pauseOnHover
-                    paused={!!active}
-                    className="[--duration:55s] [--gap:0.75rem] px-0 py-14"
-                >
-                    {photos.map((photo) => (
+    const renderPhoto = (photo: SunsetPhoto) => (
                         <div
                             key={photo.src}
                             className="group/card relative shrink-0 cursor-pointer"
@@ -100,13 +84,6 @@ export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
                                 }
                             }}
                         >
-                            {/* Ambient bloom: a blurred copy of the photo bleeds its
-                                own colour outward, so each sunset appears to emit
-                                light. The blur radius is kept small enough that its
-                                soft tail fades to nothing inside the marquee's py-14
-                                padding — otherwise overflow-hidden cuts a hard edge.
-                                Served tiny (sizes="40px") since it is blurred to a
-                                smear; decorative, so hidden from assistive tech. */}
                             <Image
                                 src={photo.src}
                                 alt=""
@@ -117,12 +94,6 @@ export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
                             />
                             <Lens zoomFactor={1.75} lensSize={110} ariaLabel={photo.alt}>
                                 <div className="relative aspect-[3/4] h-48 sm:h-64 overflow-hidden rounded-xl">
-                                    {/* Fallback for the rare photo without a
-                                        generated blur: a pulsing placeholder so the
-                                        row never looks empty while it streams in.
-                                        When a blur exists, next/image renders it in
-                                        the SSR HTML (visible before hydration) and
-                                        this is skipped. */}
                                     {!photo.blurDataURL && !loaded.has(photo.src) && (
                                         <div className="absolute inset-0 animate-pulse rounded-xl bg-muted" />
                                     )}
@@ -136,9 +107,6 @@ export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
                                         onLoad={() => markLoaded(photo.src)}
                                         className={cn(
                                             "object-cover",
-                                            // Only hand-fade when there is no native
-                                            // blur; otherwise next/image manages the
-                                            // placeholder-to-photo swap itself.
                                             !photo.blurDataURL &&
                                                 "transition-opacity duration-500 motion-reduce:transition-none",
                                             !photo.blurDataURL && !loaded.has(photo.src)
@@ -149,7 +117,33 @@ export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
                                 </div>
                             </Lens>
                         </div>
-                    ))}
+    );
+
+    return (
+        <div className="flex flex-col">
+            <SectionHeading icon={<IconFlame className={headingIconClass} />}>
+                Things I&#39;m obsessed with
+            </SectionHeading>
+
+            <p className="-mt-4 mb-8 text-center text-sm font-medium tracking-wide text-muted-foreground">
+                Bikes &middot; Cars &middot; Jets &middot; Mountains
+            </p>
+
+            <div className="relative flex flex-col gap-4 py-8 overflow-hidden">
+                <Marquee
+                    pauseOnHover
+                    paused={!!active}
+                    className="[--duration:55s] [--gap:0.75rem] px-0"
+                >
+                    {photosRow1.map(renderPhoto)}
+                </Marquee>
+                <Marquee
+                    reverse
+                    pauseOnHover
+                    paused={!!active}
+                    className="[--duration:55s] [--gap:0.75rem] px-0"
+                >
+                    {photosRow2.map(renderPhoto)}
                 </Marquee>
                 <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-background" />
                 <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-background" />

@@ -12,7 +12,7 @@ import { SpotlightGlow } from "@/components/ui/spotlight-glow";
 export default function Experience() {
   return (
     <div className="flex flex-col">
-      <SectionHeading icon={<IconBriefcase2 className={headingIconClass}/>}>
+      <SectionHeading icon={<IconBriefcase2 className={headingIconClass} />}>
         Experience
       </SectionHeading>
       <TracingBeam>
@@ -38,7 +38,7 @@ export default function Experience() {
         <SectionHeading className="my-8" icon={<IconSchool className={headingIconClass} />}>
           Education
         </SectionHeading>
-        <ExperienceItem
+        {/* <ExperienceItem
           image="/experience/umasslowell_logo.jpg"
           company="University of Massachusetts, Lowell"
           role="B.S. in Computer Science, Minor in Mathematics"
@@ -47,6 +47,16 @@ export default function Experience() {
           location="Lowell, MA"
           skills={["C", "C++", "Java", "Python", "JavaScript", "HTML/CSS", "SQL"]}
           href="https://www.uml.edu"
+        /> */}
+        <ExperienceItem
+          image="/experience/jpce_logo.png"
+          company="J.P. College of Engineering"
+          role="B.E. in Computer Science and Engineering"
+          date="2022 - 2026"
+          description="Bachelor of Engineering in Computer Science and Engineering, affiliated with Anna University. CGPA: 8.4 / 10"
+          location="Tenkasi, Tamil Nadu, India"
+          skills={["Java", "Python", "C", "JavaScript", "React", "Node.js", "SQL", "MongoDB"]}
+          href=""
         />
       </BlurFade>
     </div>

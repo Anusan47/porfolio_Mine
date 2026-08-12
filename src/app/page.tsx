@@ -4,13 +4,14 @@ import Dashboard from "@/components/home/dashboard";
 import Projects from "@/components/home/projects"
 import Earth from "@/components/home/earth"
 import { BlurFade } from "@/components/ui/blur-fade";
-import { getSunsetPhotos } from "@/lib/sunsets";
-
+import { getObsessionPhotos } from "@/lib/sunsets";
+import { data } from "@/data/data";
 
 const BLUR_FADE_DELAY = 0.005;
 
 export default async function Home() {
-  const sunsetPhotos = await getSunsetPhotos();
+  const row1 = await getObsessionPhotos(data.obsessionsRow1);
+  const row2 = await getObsessionPhotos(data.obsessionsRow2);
 
   return (
     <div className="relative min-h-screen w-full bg-background">
@@ -38,7 +39,7 @@ export default async function Home() {
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY} inView>
           <section id="earth">
-            <Earth photos={sunsetPhotos} />
+            <Earth photosRow1={row1} photosRow2={row2} />
           </section>
         </BlurFade>
       </div>
