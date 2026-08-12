@@ -153,7 +153,7 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                             <iframe 
                                 src={iframe} 
                                 className="w-[1000px] h-[600px] max-w-none border-none pointer-events-none" 
-                                style={{ transform: 'scale(0.38)', transformOrigin: 'center' }}
+                                style={{ transform: 'scale(0.55)', transformOrigin: 'center' }}
                                 title={title}
                                 tabIndex={-1}
                             />
