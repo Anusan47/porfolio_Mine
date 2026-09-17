@@ -35,7 +35,7 @@ export default function Projects() {
                             description={item.description}
                             tags={item.technologies}
                             video={item.video}
-                            iframe={(item as any).iframe}
+                            iframe={(item as { iframe?: string }).iframe}
                             thumbnail={item.thumbnail}
                         />
                     </BlurFade>
