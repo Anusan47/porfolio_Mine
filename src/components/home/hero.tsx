@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { HeroConstellation } from "@/components/ui/hero-constellation"
 import { BlurFade } from "@/components/ui/blur-fade";
 import { ShimmerBorder } from "@/components/ui/shimmer-border";

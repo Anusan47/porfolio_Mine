@@ -144,7 +144,7 @@ export const data = {
       type: "Web Application",
       technologies: ["React", "Javascript", "HTML", "TailwindCSS"],
       description: "Live interactive demo for BedIQ, a system to track live bed availability and fleet activity.",
-      iframe: "/bediq.html",
+      video: "/projects/bediq.mp4",
       // links: [
       //   {
       //     type: "Source",

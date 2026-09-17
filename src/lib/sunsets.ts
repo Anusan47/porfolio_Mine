@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
-import { data } from "@/data/data";
 
 export interface SunsetPhoto {
   src: string;
@@ -9,8 +8,6 @@ export interface SunsetPhoto {
   /** Tiny base64 preview used as next/image's blur placeholder. */
   blurDataURL?: string;
 }
-
-const IMAGE_RE = /\.(webp|jpe?g|png|avif)$/i;
 
 /**
  * Generates a tiny blurred base64 preview so next/image can render a

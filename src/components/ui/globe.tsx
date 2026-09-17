@@ -12,7 +12,6 @@ const MOVEMENT_DAMPING = 1400;
 
 const CHENNAI = { lat: 13.0827, lng: 80.2707 };
 const AMBER = "rgb(245, 158, 11)";
-const GREEN = "rgb(34, 197, 94)";
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
@@ -76,7 +75,6 @@ export function Globe({
     let currentPhi = 0;
     let overlayAnimId = 0;
     const theta = globeConfig.theta ?? 0.4;
-    const isDark = resolvedTheme === "dark";
 
     const onResize = () => {
       if (canvasRef.current) {
@@ -132,8 +130,6 @@ export function Globe({
         z: sinT * y1 + cosT * z1,
       };
     };
-
-    let beamProgress = 0;
 
     const drawOverlay = () => {
       const overlay = overlayRef.current;
