@@ -33,10 +33,10 @@ const GLOBE_CONFIG: COBEOptions = {
 export function Globe({
   className,
   config = GLOBE_CONFIG,
-}: {
+}: Readonly<{
   className?: string;
   config?: COBEOptions;
-}) {
+}>) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const overlayRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);

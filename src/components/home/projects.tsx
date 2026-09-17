@@ -33,13 +33,10 @@ export default function Projects() {
                             key={item.title}
                             title={item.title}
                             description={item.description}
-                            dates={item.dates}
                             tags={item.technologies}
-                            // image={item.image}
                             video={item.video}
-                            iframe={item.iframe}
+                            iframe={(item as any).iframe}
                             thumbnail={item.thumbnail}
-                        // links={item.links}
                         />
                     </BlurFade>
                 ))}
@@ -51,7 +48,6 @@ interface Props {
     title: string;
     href?: string;
     description: string;
-    dates: string;
     tags: readonly string[];
     link?: string;
     image?: string;
@@ -63,10 +59,9 @@ interface Props {
         type: string;
         href: string;
     }[];
-    className?: string;
 }
 
-export function ProjectCard({ title, href, description, tags, link, image, video, iframe, thumbnail, links }: Props) {
+export function ProjectCard({ title, href, description, tags, link, image, video, iframe, thumbnail, links }: Readonly<Props>) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -203,9 +198,9 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                 <CardFooter className="px-2 pb-2">
                     {links && links.length > 0 && (
                         <div className="flex flex-row flex-wrap items-start gap-1">
-                            {links?.map((link, idx) => (
-                                <Link href={link?.href} key={idx} target="_blank">
-                                    <Badge key={idx} className="flex gap-2 text-[12px]">
+                            {links?.map((link) => (
+                                <Link href={link?.href} key={link.href} target="_blank">
+                                    <Badge className="flex gap-2 text-[12px]">
                                         {link.icon}
                                         {link.type}
                                     </Badge>

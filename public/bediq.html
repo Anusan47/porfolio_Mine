@@ -589,8 +589,8 @@ resize(); initPts(); tick();
 // ---------- counters ----------
 function animateCounters(scope){
   scope.querySelectorAll('[data-count]').forEach(el=>{
-    const target = parseInt(el.getAttribute('data-count'),10);
-    const suffix = el.getAttribute('data-suffix')||'';
+    const target = Number.parseInt(el.dataset.count || '0', 10);
+    const suffix = el.dataset.suffix || '';
     const dur = 1300, start = performance.now();
     function step(t){
       const p = Math.min(1,(t-start)/dur);
@@ -641,7 +641,7 @@ function moveCursorTo(target, offX=0, offY=0){
   cursorEl.style.top = y+'px';
 }
 function clickPulse(){
-  cursorEl.classList.remove('click'); void cursorEl.offsetWidth;
+  cursorEl.classList.remove('click'); cursorEl.offsetWidth;
   cursorEl.classList.add('click');
 }
 
@@ -662,7 +662,8 @@ async function timeline(){
   const navRes  = document.querySelector('[data-nav="res"]');
   const searchbtn = document.getElementById('searchbtn');
 
-  while(true){
+  let isRunning = true;
+  while(isRunning){
     // --- Scene: Dashboard ---
     showScene('scene-dash');
     navDash.classList.add('active'); navHosp.classList.remove('active'); navRes.classList.remove('active');

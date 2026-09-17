@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { HeroConstellation } from "@/components/ui/hero-constellation"
 import { BlurFade } from "@/components/ui/blur-fade";
 import { ShimmerBorder } from "@/components/ui/shimmer-border";
@@ -70,10 +71,11 @@ export default function Hero() {
 
                         <div className="relative flex flex-col items-center justify-center mb-6">
                             <div className="group relative z-50 h-24 w-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-zinc-200/50 dark:border-zinc-800/50 shadow-xl cursor-pointer">
-                                <img
+                                <Image
                                     src="/anusan_profile2.png"
-                                    alt="Anusan Profile Picture"
-                                    className="object-cover w-full h-full transition-transform duration-500 ease-out group-hover:scale-110"
+                                    alt="Anusan Profile"
+                                    fill
+                                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                                 />
                             </div>
                         </div>
@@ -95,8 +97,7 @@ export default function Hero() {
                                     A Software Engineer who likes{" "}
                                     <span className="font-script font-normal text-[1.05em] leading-none align-baseline text-secondary-foreground">
                                         building things
-                                    </span>
-                                    .
+                                    </span>.
                                 </p>
                             </BlurFade>
                             <BlurFade delay={0.005 * 2} direction="down" inView>
@@ -143,10 +144,10 @@ const iconClass = (label: string, wiggleIcon: string | null) =>
 function ContactIcons({
     wiggleIcon,
     handleIconClick,
-}: {
+}: Readonly<{
     wiggleIcon: string | null;
     handleIconClick: (label: string) => void;
-}) {
+}>) {
     return (
         <div className="flex flex-row items-center justify-center space-x-6">
             {data.contact
