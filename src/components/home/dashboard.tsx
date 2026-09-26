@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconHeart, IconHandClick, IconBrandGithub, IconBrandSpotifyFilled, IconRefresh } from "@tabler/icons-react";
+import { IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconHeart, IconCode, IconBrandGithub, IconBrandSpotifyFilled, IconBrandLeetcode } from "@tabler/icons-react";
 import { Globe } from "@/components/ui/globe";
 import styles from "./dashboard.module.css";
 import { NumberTicker } from "@/components/ui/number-ticker";
@@ -16,7 +16,6 @@ import {
 import Image from "next/image";
 import { data } from "@/data/data";
 import { useTheme } from "next-themes";
-import { ScratchToReveal } from "../magicui/scratch-to-reveal";
 import { useWakaTime } from "@/hooks/useWakaTime";
 import { useSpotify } from "@/hooks/useSpotify";
 import { useGitHub } from "@/hooks/useGitHub";
@@ -26,32 +25,18 @@ import { GitHubHeatmap } from "./github-heatmap";
 import { SoundWave } from "@/components/ui/sound-wave";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { SpotlightGlow } from "@/components/ui/spotlight-glow";
+import { useLeetCode } from "@/hooks/useLeetCode";
+import { LeetCodeHeatmap } from "./leetcode-heatmap";
 
 
 export default function Dashboard() {
   const { totalHours, totalCoffees } = useWakaTime();
   const { track } = useSpotify();
   const { data: githubData, isLoading: isLoadingGitHub } = useGitHub();
-  const [scratchGif, setScratchGif] = useState("");
+  const { data: leetcodeData, isLoading: isLoadingLeetCode } = useLeetCode("anusan47");
   const spotlightColor = useAlbumColor(track?.albumImageUrl || null);
 
   const dashboardIconClass = "h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary";
-
-  useEffect(() => {
-    // Randomly select a GIF on mount
-    const randomGif = data.scratchGifs[Math.floor(Math.random() * data.scratchGifs.length)];
-    setScratchGif(randomGif);
-  }, []);
-
-  const pickNewGif = () => {
-    const availableGifs = data.scratchGifs.filter(gif => gif !== scratchGif);
-    const randomGif = availableGifs[Math.floor(Math.random() * availableGifs.length)];
-    setScratchGif(randomGif);
-  };
-
-  const handleScratchComplete = () => {
-    pickNewGif();
-  };
 
   return (
     <div className="flex flex-col w-full">
@@ -146,39 +131,34 @@ export default function Dashboard() {
         </GridItem>
         <GridItem
           area="scratch"
-          icon={<IconHandClick className={dashboardIconClass} />}
-          title="Scratch Me"
+          icon={<IconBrandLeetcode className={dashboardIconClass} />}
+          title="LeetCode "
           transitionDuration="600ms"
+          tooltip="Last 7 Weeks"
+          cursorEmoji="💻"
         >
-          <div className="relative">
-            <ScratchToReveal
-              minScratchPercentage={20}
-              className="flex items-center h-24 sm:h-35 justify-center overflow-hidden rounded-md bg-background"
-              gradientColors={["#A97CF933", "#F38CB933", "#FDCC9233"]}
-              onComplete={handleScratchComplete}
-              resetKey={scratchGif}
-            >
-              {scratchGif && (
-                <Image
-                  src={scratchGif}
-                  alt="Scratch to reveal"
-                  width={100}
-                  height={100}
-                  className="h-14 sm:h-16 object-contain"
-                  unoptimized
-                />
-              )}
-            </ScratchToReveal>
-            <button
-              type="button"
-              onClick={pickNewGif}
-              onMouseDown={(e) => e.stopPropagation()}
-              onTouchStart={(e) => e.stopPropagation()}
-              aria-label="Refresh scratch"
-              className="absolute top-1 right-1 z-10 p-1 rounded-md text-muted-foreground hover:text-primary hover:bg-background/60 transition-colors group"
-            >
-              <IconRefresh className="h-4 w-4 transition-transform group-hover:rotate-180 duration-300" />
-            </button>
+          <div className="flex flex-col gap-[22px] sm:gap-6 h-full">
+            {/* Heatmap */}
+            <div className="flex-1">
+              <LeetCodeHeatmap
+                contributions={leetcodeData?.contributions || []}
+                isLoading={isLoadingLeetCode}
+                username="anusan47"
+              />
+            </div>
+
+            {/* Legend */}
+            <div className="flex items-center justify-center gap-2 sm:gap-1.5 text-xs sm:text-[11px] text-neutral-400">
+              <span>Less</span>
+              <div className="flex gap-1 sm:gap-[3px]">
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-neutral-100 dark:bg-neutral-800/50" />
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-green-200 dark:bg-green-900/70" />
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-green-400 dark:bg-green-700/80" />
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-green-600 dark:bg-green-500/90" />
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-green-700 dark:bg-green-400" />
+              </div>
+              <span>More</span>
+            </div>
           </div>
         </GridItem>
         <GridItem
