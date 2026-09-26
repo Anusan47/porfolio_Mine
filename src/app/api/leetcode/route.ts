@@ -52,19 +52,6 @@ export async function GET(request: Request) {
     const contributions = [];
     let totalContributions = 0;
 
-    for (let i = 48; i >= 0; i--) {
-      const d = new Date(to);
-      d.setDate(d.getDate() - i);
-      const dateStr = d.toISOString().split('T')[0];
-      
-      // We need to check calendar for this day. LeetCode keys are UTC timestamps at midnight.
-      const timestamp = Math.floor(d.getTime() / 1000);
-      
-      // Let's find if any timestamp in calendar matches this date. 
-      // LeetCode's timestamps might be slightly off due to timezone.
-      // So we will just parse the keys and format them as 'YYYY-MM-DD' to group properly.
-    }
-    
     // Better approach: convert all keys in calendar to YYYY-MM-DD
     const submissionsByDate: Record<string, number> = {};
     for (const [timestampStr, count] of Object.entries(calendar)) {
