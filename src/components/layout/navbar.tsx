@@ -14,7 +14,7 @@ import { CommandPaletteButton } from "../command-palette/command-palette-button"
 import { IconBrandGithub, IconStar } from "@tabler/icons-react";
 import { useGitHubStars } from "@/hooks/useGitHubStars";
 
-const FALLBACK_REPO_URL = "https://github.com/shivy02/portfolio-website";
+const FALLBACK_REPO_URL = "https://github.com/Anusan47/porfolio_Mine";
 // import Link from "next/link";
 // import Image from "next/image";
 
@@ -109,7 +109,6 @@ export const Navbar = ({
           <div className="flex items-center mr-4 sm:mr-16">
             {mounted && (
               <button onClick={handleLogoClick} className="flex items-center hover:opacity-80 transition-opacity">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={resolvedTheme === "dark" ? "/anusan_logo.png" : "/anusan_logo1.png"} alt="Anusan Logo" className="h-8 w-auto" />
               </button>
             )}
