@@ -109,6 +109,7 @@ export const Navbar = ({
           <div className="flex items-center mr-4 sm:mr-16">
             {mounted && (
               <button onClick={handleLogoClick} className="flex items-center hover:opacity-80 transition-opacity">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={resolvedTheme === "dark" ? "/anusan_logo.png" : "/anusan_logo1.png"} alt="Anusan Logo" className="h-8 w-auto" />
               </button>
             )}

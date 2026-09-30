@@ -488,7 +488,6 @@ const ToolsMarquee = () => {
 
 
 const FavoriteLanguage = () => {
-  const { theme, resolvedTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -498,8 +497,6 @@ const FavoriteLanguage = () => {
   if (!isMounted) {
     return null;
   }
-
-  const currentTheme = theme || resolvedTheme || "light";
 
   const iconPath = "/tools/java-icon.svg";
 

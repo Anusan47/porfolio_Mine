@@ -137,6 +137,7 @@ export const Footer = () => {
                     <div className="col-span-2 sm:col-span-1 flex flex-col items-start gap-3">
                         {mounted && (
                             <button onClick={handleLogoClick} className="hover:opacity-80 transition-opacity">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img src={resolvedTheme === "dark" ? "/anusan_logo.png" : "/anusan_logo1.png"} alt="Anusan Logo" className="h-8 w-auto" />
                             </button>
                         )}
