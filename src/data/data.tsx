@@ -137,6 +137,16 @@ export const data = {
 
   projects: [
     {
+      title: "Smart Emergency Blood Availability Network",
+      href: "",
+      dates: "",
+      active: true,
+      type: "System Architecture",
+      technologies: ["Node.js", "NestJS", "PostgreSQL", "PostGIS", "Redis", "React", "Flutter", "Docker"],
+      description: "A complete, modular, production-ready system architecture to reduce the time required to locate compatible blood donors during medical emergencies, featuring an algorithm scoring model using spatial proximity.",
+      video: "/projects/BloodNet.mp4",
+    },
+    {
       title: "BedIQ — Statewide Hospital Intelligence",
       href: "",
       dates: "2026",
@@ -155,22 +165,40 @@ export const data = {
       // github: "github.link",
     },
     {
-      title: "Seed Planter | Gardening Assistant",
-      href: "https://github.com/SeedPlanterOrg/seedplanter-mobile",
-      dates: "Feb 2024 - May 2024",
-      active: false,
-      type: "Mobile Application",
-      technologies: ["React Native", "Javascript", "Expo", "Perenual API", "OpenAI API", "MongoDB", "NodeJS", "Express"],
-      description: "A unified solution for planters to journal, garden, track planting schedules, and learn about gardening using an AI chatbot.",
-      video: "/projects/seedplanter.mp4",
-      thumbnail: "/projects/seedplanter-img.png",
-      // links: [
-      //   {
-      //     type: "Source",
-      //     href: "https://github.com",
-      //     icon: <IconBrandGithub className="size-8" />,
-      //   },
-      // ],
+      title: "TWJ Hybrid Wellness Marketplace",
+      href: "",
+      dates: "",
+      active: true,
+      type: "Backend Developer",
+      technologies: ["Laravel", "PHP", "MySQL", "REST APIs", "Stripe"],
+      description: "Engineered multi-vendor wellness marketplace supporting physical, digital, and license products. Designed role-based architecture, subscription-based access control, and a Personal Meet module. Integrated wallet system, payment gateways, and optimized admin analytics dashboard.",
+    },
+    {
+      title: "HRMS (Human Resource Management System)",
+      href: "",
+      dates: "",
+      active: true,
+      type: "Full Stack Developer",
+      technologies: ["React", "NestJS", "MongoDB", "TypeScript", "JWT", "Docker"],
+      description: "Developed enterprise HR management system with Admin and Employee modules. Implemented JWT authentication, RBAC, attendance tracking, leave approval workflows, and an automated payroll engine. Containerized services using Docker.",
+    },
+    {
+      title: "Role Based Access Control Authentication System",
+      href: "",
+      dates: "",
+      active: true,
+      type: "Full Stack Developer",
+      technologies: ["React", "Node.js", "NestJS", "MongoDB", "JWT", "Docker"],
+      description: "Built secure JWT-based authentication system with stateless session handling and dynamic role permission mapping. Implemented email verification, password reset, and created Docker builds for frontend and backend.",
+    },
+    {
+      title: "JSON Viewer Chrome Extension",
+      href: "",
+      dates: "",
+      active: true,
+      type: "Developer",
+      technologies: ["JavaScript", "Chrome Extension API", "HTML", "CSS"],
+      description: "Built browser extension to parse and render raw JSON into structured collapsible tree format. Optimized rendering performance for large JSON responses and controlled DOM injection.",
     },
     // {
     //   title: "Cyfra | Secure Messaging Platform",
@@ -270,28 +298,28 @@ export const data = {
 
   favoriteLanguage: [
     {
-      name: "React",
-      icon: "react",
+      name: "Java",
+      icon: "java",
       themeDependent: false,
     }
   ],
 
-  scratchGifs: [
-    "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YXJld3JyYXo1Z3d1Nnh1ZzFxbXU3ZzV5N3JiamNsa3ByMHBvam1vaiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/eOjuCYIGqXSqfBy0MX/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aGh0YmFybmt1d3d4ZGY0c2lyMDhmcTlnMTBkanozNGxuangydjluaSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/AEDD6xjlOxNMgFsUmA/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWdnMDcycTF1ejAyNm1yamVuMTZpZTcxd3UwemhxbzcweGVsMDl5aSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/LqgrTA39s77U8JKhJd/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTY3c293N2VhdDFsMmFkdG85MGpjcnRrd2xybHUwZnI2dGdwdnpzYSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/xYPdnwsRPZDhCxXvOi/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YXZjdjljYzM0NzhoOHNjajZldDQ2ZzU5YTF5MTExOXQxbGdpdjAxZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/20JY76TfKAhR20SfJu/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YXZjdjljYzM0NzhoOHNjajZldDQ2ZzU5YTF5MTExOXQxbGdpdjAxZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/MxZKME5mbgeXckKp14/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Y2N2FvYTl6bTkxeGlzanpxNmJrOXh1bXBuY3gyY2ljeHpweWVlMSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/d9UAwX6gd6d3zYrTF5/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3amtteDRyNWx4OHpmODVlMXo3YnBlczd3dGRoMWVlcWE5MzJxMjA2cyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/kimWBtJDjWcwFH2nRB/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNtcmFyajY4MzNldzVkanU5dHNzdTBnaWJibmo0d2wycm5xOWRzZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/GPWKoHhTMmjTYqOTVG/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NzAwZmVqd2tyM2t4c28xZHprem00dzR3bW9vZDZ2d2FzZDV5dTkxNiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/wMQTobBKTpmg5TLuZ5/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmdtbDAxdjY3b2I2cm1naXRraGhpMm95MzA1dXkzank3dXg0MGcybSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/yrYcBBMG9F9tLwSDrM/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dXIxaXR2dzFhenZieXo1N2F0c2NpZmNza2ZwbnZpbm5vNHZ4ZWFwbyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/LIcwKtctRdCtPaaaNO/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dXIxaXR2dzFhenZieXo1N2F0c2NpZmNza2ZwbnZpbm5vNHZ4ZWFwbyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/LIcwKtctRdCtPaaaNO/giphy.gif",
-    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3FqaHAwa2d1ZHB4ZTIwMXlka2FrNGNrbHRlamJxZ3AzbXVzdHpqMCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/UmbybxMJ3sRvKBV5qw/giphy.gif",
-  ],
+  // scratchGifs: [
+  //   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YXJld3JyYXo1Z3d1Nnh1ZzFxbXU3ZzV5N3JiamNsa3ByMHBvam1vaiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/eOjuCYIGqXSqfBy0MX/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aGh0YmFybmt1d3d4ZGY0c2lyMDhmcTlnMTBkanozNGxuangydjluaSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/AEDD6xjlOxNMgFsUmA/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWdnMDcycTF1ejAyNm1yamVuMTZpZTcxd3UwemhxbzcweGVsMDl5aSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/LqgrTA39s77U8JKhJd/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTY3c293N2VhdDFsMmFkdG85MGpjcnRrd2xybHUwZnI2dGdwdnpzYSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/xYPdnwsRPZDhCxXvOi/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YXZjdjljYzM0NzhoOHNjajZldDQ2ZzU5YTF5MTExOXQxbGdpdjAxZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/20JY76TfKAhR20SfJu/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YXZjdjljYzM0NzhoOHNjajZldDQ2ZzU5YTF5MTExOXQxbGdpdjAxZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/MxZKME5mbgeXckKp14/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Y2N2FvYTl6bTkxeGlzanpxNmJrOXh1bXBuY3gyY2ljeHpweWVlMSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/d9UAwX6gd6d3zYrTF5/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3amtteDRyNWx4OHpmODVlMXo3YnBlczd3dGRoMWVlcWE5MzJxMjA2cyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/kimWBtJDjWcwFH2nRB/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNtcmFyajY4MzNldzVkanU5dHNzdTBnaWJibmo0d2wycm5xOWRzZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/GPWKoHhTMmjTYqOTVG/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NzAwZmVqd2tyM2t4c28xZHprem00dzR3bW9vZDZ2d2FzZDV5dTkxNiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/wMQTobBKTpmg5TLuZ5/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmdtbDAxdjY3b2I2cm1naXRraGhpMm95MzA1dXkzank3dXg0MGcybSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/yrYcBBMG9F9tLwSDrM/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dXIxaXR2dzFhenZieXo1N2F0c2NpZmNza2ZwbnZpbm5vNHZ4ZWFwbyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/LIcwKtctRdCtPaaaNO/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dXIxaXR2dzFhenZieXo1N2F0c2NpZmNza2ZwbnZpbm5vNHZ4ZWFwbyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/LIcwKtctRdCtPaaaNO/giphy.gif",
+  //   "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3FqaHAwa2d1ZHB4ZTIwMXlka2FrNGNrbHRlamJxZ3AzbXVzdHpqMCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/UmbybxMJ3sRvKBV5qw/giphy.gif",
+  // ],
 
   tools: [
     {
@@ -422,6 +450,16 @@ export const data = {
     {
       name: "VSCode",
       icon: "vscode",
+      themeDependent: false,
+    },
+    {
+      name: "Java",
+      icon: "java-icon",
+      themeDependent: false,
+    },
+    {
+      name: "Java Spring",
+      icon: "springio-icon",
       themeDependent: false,
     },
   ],

@@ -501,20 +501,19 @@ const FavoriteLanguage = () => {
 
   const currentTheme = theme || resolvedTheme || "light";
 
-  const iconPath =
-    currentTheme === "dark" ? "/tools/nextjs-dark.svg" : "/tools/nextjs.svg";
+  const iconPath = "/tools/java-icon.svg";
 
   return (
     <div className="flex items-center justify-start h-full">
       <Image
         src={iconPath}
-        alt="Next.js Icon"
+        alt="Java Icon"
         width={24}
         height={24}
         className="h-6 w-6 sm:h-8 sm:w-8 ml-1 mb-1"
       />
       <span className="ml-2 sm:ml-3 mb-1 text-md sm:text-lg font-normal tracking-tight text-muted-foreground">
-        Next JS
+        Java
       </span>
     </div>
   );

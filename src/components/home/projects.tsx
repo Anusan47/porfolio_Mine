@@ -23,7 +23,7 @@ export default function Projects() {
                 Projects
             </SectionHeading>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mx-auto">
-                {data.projects.map((item, index) => (
+                {data.projects.slice(0, 2).map((item, index) => (
                     <BlurFade
                         key={item.title}
                         delay={0.04 * 12 + index * 0.05}
@@ -40,6 +40,12 @@ export default function Projects() {
                         />
                     </BlurFade>
                 ))}
+            </div>
+            
+            <div className="flex justify-center mt-8">
+                <Link href="/projects" className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+                    View All Projects
+                </Link>
             </div>
         </div>
     );
@@ -74,6 +80,10 @@ export function ProjectCard({ title, href, description, tags, link, image, video
         };
 
         video.addEventListener("playing", handleVideoPlaying);
+
+        // Explicitly mute to guarantee no sound
+        video.defaultMuted = true;
+        video.muted = true;
 
         // Explicitly try to play the video
         const playPromise = video.play();
