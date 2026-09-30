@@ -36,12 +36,12 @@ export default function Projects() {
                             tags={item.technologies}
                             video={item.video}
                             iframe={(item as { iframe?: string }).iframe}
-                            thumbnail={item.thumbnail}
+                            thumbnail={(item as { thumbnail?: string }).thumbnail}
                         />
                     </BlurFade>
                 ))}
             </div>
-            
+
             <div className="flex justify-center mt-8">
                 <Link href="/projects" className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
                     View All Projects
@@ -155,9 +155,9 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                     {/* iframe Support */}
                     {iframe && (
                         <div className="absolute inset-0 bg-[#050914] z-10 overflow-hidden flex items-center justify-center">
-                            <iframe 
-                                src={iframe} 
-                                className="w-[1000px] h-[600px] max-w-none border-none pointer-events-none" 
+                            <iframe
+                                src={iframe}
+                                className="w-[1000px] h-[600px] max-w-none border-none pointer-events-none"
                                 style={{ transform: 'scale(0.55)', transformOrigin: 'center' }}
                                 title={title}
                                 tabIndex={-1}

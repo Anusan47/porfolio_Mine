@@ -3,10 +3,9 @@ import React from "react";
 import { data } from "@/data/data";
 import { ProjectCard } from "@/components/home/projects";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { IconBrush } from "@tabler/icons-react";
+import { IconBrush, IconArrowLeft } from "@tabler/icons-react";
 import { SectionHeading, headingIconClass } from "@/components/layout/section-heading";
 import Link from "next/link";
-import { IconArrowLeft } from "@tabler/icons-react";
 
 export default function ProjectsPage() {
     return (
@@ -23,7 +22,7 @@ export default function ProjectsPage() {
                     A comprehensive list of all the projects I have worked on, including web applications, mobile apps, and more.
                 </p>
             </div>
-            
+
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mx-auto w-full">
                 {data.projects.map((item, index) => (
                     <BlurFade
@@ -38,7 +37,7 @@ export default function ProjectsPage() {
                             tags={item.technologies}
                             video={item.video}
                             iframe={(item as { iframe?: string }).iframe}
-                            thumbnail={item.thumbnail}
+                            thumbnail={(item as { thumbnail?: string }).thumbnail}
                         />
                     </BlurFade>
                 ))}
