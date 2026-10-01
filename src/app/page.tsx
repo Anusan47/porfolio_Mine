@@ -2,6 +2,7 @@ import Hero from "@/components/home/hero"
 import Experience from "@/components/home/experience"
 import Dashboard from "@/components/home/dashboard";
 import Projects from "@/components/home/projects"
+import CredentialsShowcase from "@/components/home/credentials-showcase";
 import Earth from "@/components/home/earth"
 import { BlurFade } from "@/components/ui/blur-fade";
 import { getObsessionPhotos } from "@/lib/sunsets";
@@ -29,6 +30,12 @@ export default async function Home() {
         <BlurFade delay={BLUR_FADE_DELAY * 3} inView>
           <section id="projects">
             <Projects />
+          </section>
+        </BlurFade>
+
+        <BlurFade delay={BLUR_FADE_DELAY * 3.5} inView>
+          <section id="credentials">
+            <CredentialsShowcase />
           </section>
         </BlurFade>
 
